@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="todo-app.css" rel="stylesheet" />
+    <title>Our TodoManagement App</title>
+  </head>
+
+  <body>
+    <main class="TodoPageMain">
+      <article>
+        <h1 class="TodoPage-title">My To-do List</h1>
+        <section class="AddTodo">
+          <input class="AddTodo-text" type="text" placeholder="what's next?" />
+          <input class="AddTodo-date" type="date" />
+          <input class="AddTodo-button" type="button" value="Add" />
+        </section>
+        <section class="TodoSelection">
+          <div class="TodoSectionTitle">
+            <p class="TodoSectionTitle-text">Due Today</p>
+            <p class="TodoSectionTitle-remainingCount">0/4</p>
+          </div>
+          <ul>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Submit SaaS 201 project
+                <p class="TodoItem-overdueLebel">Overdue</p>
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Call accountant
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+          </ul>
+        </section>
+        <section class="TodoSelection">
+          <div class="TodoSectionTitle">
+            <p class="TodoSectionTitle-text">Due Tomorrow</p>
+            <p class="TodoSectionTitle-remainingCount">0/3</p>
+          </div>
+          <ul>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Type Something
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+          </ul>
+        </section>
+        <section class="TodoSelection">
+          <div class="TodoSectionTitle">
+            <p class="TodoSectionTitle-text">Remaining</p>
+            <p class="TodoSectionTitle-remainingCount">0/3</p>
+          </div>
+          <ul>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Type Something
+                <p class="TodoItem-date">jan 21</p>
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Type Something
+                <p class="TodoItem-date">jan 22</p>
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+            <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox" />
+                Type Something
+                <p class="TodoItem-date">jan 23</p>
+                <img
+                  class="TodoItem-image"
+                  src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                  alt="delete"
+                />
+              </label>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
