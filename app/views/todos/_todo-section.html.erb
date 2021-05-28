@@ -1,0 +1,27 @@
+ <section class="TodoSection">
+        <div class="TodoSectionTitle">
+          <p class="TodoSectionTitle-text"><%=section_title%></p>
+          <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %>/<%=todos.count%></p>
+        </div>
+        <ul>
+          <% todos.each do |todo|%>
+              <li class="TodoItem">
+              <label class="TodoItem-container">
+                <input class="TodoItem-checkbox" type="checkbox"/>
+                <p class='<%= todo.completed ? "todocompleted" : ""%>'><%= todo.todo_text%></p>
+                <% if show_due_date%>
+                    <p class="TodoItem-date"><%=todo.due_date.to_s(:short)%></p>
+                <%end%>
+                <a href="javascript:void(0)" class="TodoItem-delete">
+                  <img
+                    class="TodoItem-image"
+                    src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
+                    alt="delete"
+                  />
+                </a>
+              </label>
+
+            </li>
+         <%end%>
+        <ul>
+ </section>
