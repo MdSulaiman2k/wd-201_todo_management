@@ -19,15 +19,11 @@
           <% if show_due_date%>
             <p class="TodoItem-date"><%=todo.due_date.to_s(:short)%></p>
           <%end%>
-          <a href="javascript:void(0)" class="TodoItem-delete">
-            <img
-                    class="TodoItem-image"
-                    src="https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png"
-                    alt="delete"
-                  />
-            </a>
-          </label>
-        </li>
-      <%end%>
-      <ul>
-      </section>
+          <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
+            <%=image_submit_tag("https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png", class: 'TodoItem-image')%>
+          <%end%>
+        </label>
+      </li>
+    <%end%>
+    <ul>
+    </section>
