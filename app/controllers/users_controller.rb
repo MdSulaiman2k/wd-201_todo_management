@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
     render plain: User.order(:id).map { |user| user.to_pleasent_string }.join("\n")
+    #render "index"
+  end
+
+  def new
+    render "new"
   end
 
   def show
@@ -10,16 +15,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    name = params[:name]
+    firstname = params[:first_name]
+    lastname = params[:last_name]
     email = params[:email]
     password = params[:password]
     user = User.create!(
-      name: name,
+      firstname: firstname,
+      lastname: lastname,
       email: email,
-      password: password,
+      password_digest: password,
     )
-    response_text = "You are registered successfully with an id #{user.id}"
-    render plain: response_text
+    # response_text = "You are registered successfully with an id #{user.id}"
+    # render plain: response_text
+    redirect_to "/"
   end
 
   def login
