@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_204900) do
     t.string "todo_text"
     t.date "due_date"
     t.boolean "completed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_204900) do
     t.string "lastname"
     t.string "email", null: false
     t.string "password", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
