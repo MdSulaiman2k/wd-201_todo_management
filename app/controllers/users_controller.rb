@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       firstname: firstname,
       lastname: lastname,
       email: email,
-      password_digest: password,
+      password: password,
     )
     # response_text = "You are registered successfully with an id #{user.id}"
     # render plain: response_text
