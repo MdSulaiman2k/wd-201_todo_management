@@ -16,6 +16,7 @@ class TodosController < ApplicationController
       todo_text: todo_text,
       due_date: due_date,
       completed: false,
+      user_id: User.first.id,
     )
     redirect_to todos_path
   end
@@ -23,6 +24,7 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
+    puts completed, "varuthudaaa vendru"
     todo = Todo.find(id)
     todo.completed = completed
     todo.save!

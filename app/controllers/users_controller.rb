@@ -29,17 +29,4 @@ class UsersController < ApplicationController
     # render plain: response_text
     redirect_to "/"
   end
-
-  def login
-    email = params[:email]
-    password = params[:password]
-    user = User.where("email = ?", email).first
-    if user == nil
-      render plain: "false"
-    elsif user.password == password
-      render plain: "true"
-    else
-      render plain: "false"
-    end
-  end
 end
