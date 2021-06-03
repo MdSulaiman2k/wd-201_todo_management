@@ -13,8 +13,9 @@
       <p class="UserHeader">
         Welcome
         <%= @current_user.firstname%>
-      </p>
-    <%end%>
-    <%= yield %>
-  </body>
+        <%= link_to "Sign-out", destroy_session_path , method: "delete" %> </p>
+    </p>
+  <%end%>
+  <%= yield %>
+</body>
 </html>
