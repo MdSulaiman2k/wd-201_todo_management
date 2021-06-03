@@ -19,12 +19,10 @@ class TodosController < ApplicationController
       completed: false,
       user_id: current_user.id,
     )
-    if todo_new.save
-      redirect_to todos_path
-    else
+    unless todo_new.save
       flash[:error] = todo_new.errors.full_messages.join(", ")
-      redirect_to todos_path
     end
+    redirect_to todos_path
   end
 
   def update

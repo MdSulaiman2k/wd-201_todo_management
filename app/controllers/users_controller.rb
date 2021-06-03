@@ -21,14 +21,17 @@ class UsersController < ApplicationController
     lastname = params[:last_name]
     email = params[:email]
     password = params[:password]
-    user = User.create!(
+    user = User.new(
       firstname: firstname,
       lastname: lastname,
       email: email,
       password: password,
     )
-    # response_text = "You are registered successfully with an id #{user.id}"
-    # render plain: response_text
-    redirect_to "/"
+    if user.save
+      redirect_to "/"
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to sessions_path
+    end
   end
 end
