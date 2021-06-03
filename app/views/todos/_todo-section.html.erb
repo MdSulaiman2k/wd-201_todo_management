@@ -20,7 +20,9 @@
             <p class="TodoItem-date"><%=todo.due_date.to_s(:short)%></p>
           <%end%>
           <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
-            <%=image_submit_tag("https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png", class: 'TodoItem-image')%>
+            <%= image_submit_tag("https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png",
+                class: 'TodoItem-image')
+            %>
           <%end%>
         </label>
       </li>

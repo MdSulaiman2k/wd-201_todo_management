@@ -28,10 +28,11 @@ class UsersController < ApplicationController
       password: password,
     )
     if user.save
+      session[:current_user_id] = user.id
       redirect_to "/"
     else
       flash[:error] = user.errors.full_messages.join(", ")
-      redirect_to sessions_path
+      redirect_to new_user_path
     end
   end
 end
