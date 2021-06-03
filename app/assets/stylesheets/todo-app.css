@@ -39,9 +39,7 @@ input{
 }
 
 .AddTodo-date {
-  padding: 6px;
   font-size: 14px;
-  width:45px;
   padding-left:1.6rem;
   margin-right:10px;
   border-radius:4px;
