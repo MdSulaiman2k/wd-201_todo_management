@@ -12,7 +12,7 @@
     <%if @current_user%>
       <p class="UserHeader">
         Welcome
-        <%= @current_user.firstname%>
+        <%= @current_user.firstname + " " +  @current_user.lastname%>
         <%= link_to "Sign-out", destroy_session_path , method: "delete" %> </p>
     </p>
   <%end%>

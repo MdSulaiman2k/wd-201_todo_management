@@ -1,15 +1,19 @@
 class Todo < ActiveRecord::Base
   belongs_to :user
   def self.overdue
-    all.where(" due_date< ?", Date.today).order(:due_date, :id)
+    where(" due_date< ?", Date.today).order(:due_date, :id)
+  end
+
+  def self.of_userid(user)
+    where(user_id: user.id)
   end
 
   def self.due_today
-    all.where("due_date= ?", Date.today).order(:due_date, :id)
+    where("due_date= ?", Date.today).order(:due_date, :id)
   end
 
   def self.due_later
-    all.where("due_date> ?", Date.today).order(:due_date, :id)
+    where("due_date> ?", Date.today).order(:due_date, :id)
   end
 
   def self.show_list
