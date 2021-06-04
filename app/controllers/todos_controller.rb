@@ -3,11 +3,6 @@ class TodosController < ApplicationController
     render "index"
   end
 
-  def show
-    id = params[:id]
-    todo = Todo.find(id)
-    render plain: todo.to_pleasent_string
-  end
 
   def create
     todo_text = params[:todo_text]
