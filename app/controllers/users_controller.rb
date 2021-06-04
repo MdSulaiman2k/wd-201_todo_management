@@ -3,11 +3,6 @@ class UsersController < ApplicationController
     render plain: User.order(:id).map { |user| user.to_pleasent_string }.join("\n")
   end
 
-  def show
-    id = params[:id]
-    user = User.find(id)
-    render plain: user.to_pleasent_string
-  end
 
   def create
     name = params[:name]
