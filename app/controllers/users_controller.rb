@@ -2,18 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def index
-    render plain: User.order(:id).map { |user| user.to_pleasent_string }.join("\n")
-    #render "index"
+    render "index"
   end
 
   def new
     render "new"
-  end
-
-  def show
-    id = params[:id]
-    user = User.find(id)
-    render plain: user.to_pleasent_string
   end
 
   def create

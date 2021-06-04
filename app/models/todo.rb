@@ -31,11 +31,6 @@ class Todo < ActiveRecord::Base
     puts "\n\n"
   end
 
-  def to_pleasent_string
-    is_completed = completed ? "[x]" : "[ ]"
-    "#{id} .  #{due_date.to_s(:long)} #{todo_text} #{is_completed}"
-  end
-
   def self.completed
     all.where(completed: true)
   end

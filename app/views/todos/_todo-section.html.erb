@@ -13,15 +13,19 @@
                  value: <%= todo.completed ? "checked" : ""%>
                  name ="completed"
                  onclick="this.form.submit()"
-                 />
+            />
           <%end%>
-          <p class='<%= todo.completed ? "todocompleted" : ""%>'><%= todo.todo_text%></p>
+          <p class='<%= todo.completed ? "todocompleted" : ""%>'>
+            <%= todo.todo_text%>
+          </p>
           <% if show_due_date%>
-            <p class="TodoItem-date"><%=todo.due_date.to_s(:short)%></p>
+            <p class="TodoItem-date">
+              <%=todo.due_date.to_s(:short)%>
+            </p>
           <%end%>
           <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
             <%= image_submit_tag("https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png",
-                class: 'TodoItem-image')
+                                class: 'TodoItem-image')
             %>
           <%end%>
         </label>
