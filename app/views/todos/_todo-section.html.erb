@@ -9,9 +9,8 @@
         <label class="TodoItem-container">
           <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
             <%= check_box_tag(
-                  "completed",
-                  "true",
-                  (todo.completed) ? true : false,
+                  value = "completed",
+                  checked = (todo.completed) ? true : false,
                   class: "TodoItem-checkbox",
                   onclick: "this.form.submit()",
                 ) %>
