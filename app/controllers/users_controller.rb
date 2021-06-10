@@ -1,39 +1,31 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :ensure_user_logged_in
 
   def index
-    render plain: User.order(:id).map { |user| user.to_pleasent_string }.join("\n")
+    render "index"
   end
 
-  def show
-    id = params[:id]
-    user = User.find(id)
-    render plain: user.to_pleasent_string
+  def new
+    render "new"
   end
 
   def create
-    name = params[:name]
+    firstname = params[:first_name]
+    lastname = params[:last_name]
     email = params[:email]
     password = params[:password]
-    user = User.create!(
-      name: name,
+    user = User.new(
+      firstname: firstname,
+      lastname: lastname,
       email: email,
       password: password,
     )
-    response_text = "You are registered successfully with an id #{user.id}"
-    render plain: response_text
-  end
-
-  def login
-    email = params[:email]
-    password = params[:password]
-    user = User.where("email = ?", email).first
-    if user == nil
-      render plain: "false"
-    elsif user.password == password
-      render plain: "true"
+    if user.save
+      session[:current_user_id] = user.id
+      redirect_to "/"
     else
-      render plain: "false"
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to new_user_path
     end
   end
 end

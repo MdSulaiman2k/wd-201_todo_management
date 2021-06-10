@@ -1,24 +1,35 @@
 <main class="TodoPageMain">
   <article>
     <h1 class="TodoPage-title">My To-do List</h1>
-    <section class="AddTodo">
-      <input class="AddTodo-text" type="text" placeholder="what's next?" />
-      <input class="AddTodo-date" type="date" />
-      <input class="AddTodo-button" type="button" value="Add" />
-    </section>
+    <%= form_with(url: "/todos",method: "post",class: "AddTodo") do %>
+      <%=text_field_tag "todo_text", nil,
+                         autocomplete: "off",
+                         required: true ,
+                         placeholder: "What's next",
+                         class: "AddTodo-text"
+      %>
+      <%=date_field_tag "due_date", nil,
+                        required: true,
+                        autocomplete: "off",
+                        class: "AddTodo-date"
+      %>
+      <%=submit_tag  nil,
+                     class: "AddTodo-button"
+      %>
+    <%end%>
     <%= render partial: "todo-section" , locals:
        {section_title: "Overdue",
-        todos: Todo.overdue.notcompleted,
+        todos: @todos.overdue.notcompleted,
         show_due_date: true,
        }%>
     <%= render partial: "todo-section" , locals:
        {section_title: "Due Today",
-        todos: Todo.due_today,
+        todos: @todos.due_today,
         show_due_date: false,
        }%>
     <%= render partial: "todo-section" , locals:
        {section_title: "Due Later",
-        todos: Todo.due_later,
+        todos: @todos.due_later,
         show_due_date: true,
        }%>
   </article>

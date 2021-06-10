@@ -1,14 +1,19 @@
 class Todo < ActiveRecord::Base
+  belongs_to :user
+  validates :todo_text, presence: true
+  validates :todo_text, length: { minimum: 2 }
+  validates :due_date, presence: true
+
   def self.overdue
-    all.where(" due_date< ?", Date.today).order(:due_date, :id)
+    where(" due_date< ?", Date.today).order(:due_date, :id)
   end
 
   def self.due_today
-    all.where("due_date= ?", Date.today).order(:due_date, :id)
+    where("due_date= ?", Date.today).order(:due_date, :id)
   end
 
   def self.due_later
-    all.where("due_date> ?", Date.today).order(:due_date, :id)
+    where("due_date> ?", Date.today).order(:due_date, :id)
   end
 
   def self.show_list
@@ -24,11 +29,6 @@ class Todo < ActiveRecord::Base
     puts "Due Later\n"
     puts due_later.map { |todo| todo.to_displayable_string }
     puts "\n\n"
-  end
-
-  def to_pleasent_string
-    is_completed = completed ? "[x]" : "[ ]"
-    "#{id} .  #{due_date.to_s(:long)} #{todo_text} #{is_completed}"
   end
 
   def self.completed
