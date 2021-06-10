@@ -9,13 +9,20 @@
         <label class="TodoItem-container">
           <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
             <input class="TodoItem-checkbox"
-                 type="checkbox"
-                 value: <%= todo.completed ? "checked" : ""%>
-                 name ="completed"
-                 onclick="this.form.submit()"
+                   type="checkbox"
+                   value: <%= todo.completed ? "checked" : ""%>
+                   name ="completed"
+                   onclick="this.form.submit()"
             />
+            <%= check_box_tag("completed",
+                          value = todo.completed ? "checked" : "",
+                          class: "TodoItem-checkbox",
+                          onclick: "this.form.submit()")
+            %>
           <%end%>
-          <p class='<%= todo.completed ? "todocompleted" : ""%>'>
+          <p class=
+            '<%= todo.completed ? "todocompleted" : ""%>'
+          >
             <%= todo.todo_text%>
           </p>
           <% if show_due_date%>
@@ -25,7 +32,7 @@
           <%end%>
           <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
             <%= image_submit_tag("https://images-ext-1.discordapp.net/external/U_K5v2KcEDa7AgmbwFtBoGHJsexurMez84ylfZvUykE/https/tips.typeapp.com/assets/folder_trash.png",
-                                class: 'TodoItem-image')
+                                  class: 'TodoItem-image')
             %>
           <%end%>
         </label>
