@@ -8,12 +8,13 @@
       <li class="TodoItem">
         <label class="TodoItem-container">
           <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
-            <input class="TodoItem-checkbox"
-                 type="checkbox"
-                 value: <%= todo.completed ? "checked" : ""%>
-                 name ="completed"
-                 onclick="this.form.submit()"
-            />
+             <%= check_box_tag(
+                  "completed",
+                  "true",
+                  (todo.completed) ? true : false,
+                  class: "TodoItem-checkbox",
+                  onclick: "this.form.submit()",
+                ) %>
           <%end%>
           <p class='<%= todo.completed ? "todocompleted" : ""%>'>
             <%= todo.todo_text%>
