@@ -11,7 +11,7 @@
              <%= check_box_tag(
                   "completed",
                   "true",
-                  (todo.completed) ? true : false,
+                  todo.completed,
                   class: "TodoItem-checkbox",
                   onclick: "this.form.submit()",
                 ) %>
