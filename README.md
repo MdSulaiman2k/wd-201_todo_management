@@ -1,24 +1,24 @@
-# README
+# Todo Management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Todo Management application is a fully functional web application user can create they own todo in this application.
 
-Things you may want to cover:
+Features:
 
-* Ruby version
+* Ruby version 3.0.1
 
-* System dependencies
+* Rails version 6.1.3.2
 
-* Configuration
+* Database Postgresql
 
-* Database creation
+* use MVC(Model View Controller) pattern
 
-* Database initialization
+* stay aware from CSRF(Cross Site Request Forgery)
 
-* How to run the test suite
+* * User can signin and signup
 
-* Services (job queues, cache servers, search engines, etc.)
+* User can create they own todo mark as complete and delete the todo
 
-* Deployment instructions
+Visit website in this link [Heroku](https://sulaimantodomanager.herokuapp.com)
 
-* ...
+<img width="939" alt="TodoManagement" src="https://user-images.githubusercontent.com/77278345/122087840-cf79ad80-ce22-11eb-802f-74204a0458bf.png">
+
